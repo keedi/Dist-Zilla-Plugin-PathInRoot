@@ -86,6 +86,8 @@ root of your dist for e.g. inclusion into version control.
 
 =attr copy
 
+Copy the specified file from the build directory to the project root
+
 
 =head1 SEE ALSO
 
