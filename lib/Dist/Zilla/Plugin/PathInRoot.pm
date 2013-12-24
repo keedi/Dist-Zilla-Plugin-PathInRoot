@@ -3,6 +3,7 @@ package Dist::Zilla::Plugin::PathInRoot;
 
 use Moose;
 with 'Dist::Zilla::Role::AfterBuild';
+with 'Dist::Zilla::Role::BeforeBuild';
 
 use namespace::autoclean;
 
@@ -41,6 +42,21 @@ sub after_build {
 
         $self->log([ 'PathInRoot updating contents of %s in root', $path ]);
         $dest->spew_raw( $src->slurp_raw );
+    }
+
+    return;
+}
+
+sub before_build {
+    my ( $self, $args ) = @_;
+
+    my @paths = @{ $self->paths_to_copy };
+    for my $path (@paths) {
+        my $dest = path( $self->zilla->root . "/$path" );
+        next unless -e $dest;
+
+        $self->log("removing $path in root");
+        $dest->remove_tree;
     }
 
     return;
