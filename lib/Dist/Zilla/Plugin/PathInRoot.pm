@@ -68,3 +68,30 @@ __PACKAGE__->meta->make_immutable;
 1;
 __END__
 
+=head1 SYNOPSIS
+
+In your F<dist.ini>
+
+    [PathInRoot]
+    copy = Makefile.PL
+    copy = cpanfile
+
+
+=head1 DESCRIPTION
+
+Puts the specified files in the project root from build root.
+The generated files can be included in the build or created in the
+root of your dist for e.g. inclusion into version control.
+
+
+=attr copy
+
+
+=head1 SEE ALSO
+
+=for :list
+* L<Dist::Zilla::Plugin::ReadmeAnyFromPod>
+* L<Dist::Zilla::Plugin::ManifestInRoot>
+
+
+=cut
