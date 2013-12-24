@@ -7,6 +7,8 @@ with 'Dist::Zilla::Role::BeforeBuild';
 
 use namespace::autoclean;
 
+use Path::Tiny;
+
 sub mvp_multivalue_args { qw( paths_to_copy ) }
 sub mvp_aliases         { +{ copy => 'paths_to_copy' } }
 
