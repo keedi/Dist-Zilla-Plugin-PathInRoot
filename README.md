@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::PathInRoot - Puts the build files in the project root
 
 # VERSION
 
-version 0.000
+version 0.001
 
 # SYNOPSIS
 
